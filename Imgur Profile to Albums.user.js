@@ -28,6 +28,7 @@ if (submitButton) {
 	
     let profileButton = document.createElement('div');
     profileButton.setAttribute('class','button-css');
+    profileButton.setAttribute('style', 'margin-top:5px');
     profileButton.innerText = `Check ${userName}'s Profile`;
 
     profileLink.appendChild(profileButton);
