@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Imgur: Check albums from post
 // @namespace    http://tampermonkey.net/
-// @version      0.03
+// @version      0.04
 // @description  View user albums from their post
 // @author       Trasiva
 // @require      https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.6.15/browser-polyfill.min.js
@@ -14,7 +14,7 @@ var inline_src = (<><![CDATA[
 /* jshint ignore:end */
 /* jshint esnext: true */1
 
-let postHeader = document.getElementsByClassName('post-header');
+let postHeader = document.getElementsByClassName('data-reactroot');
 
  
 if (postHeader.length > 0) {
