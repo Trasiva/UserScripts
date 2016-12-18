@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Imgur: Check albums from post
 // @namespace    http://tampermonkey.net/
-// @version      0.02
+// @version      0.03
 // @description  View user albums from their post
 // @author       Trasiva
 // @require      https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.6.15/browser-polyfill.min.js
@@ -16,13 +16,14 @@ var inline_src = (<><![CDATA[
 
 let postHeader = document.getElementsByClassName('post-header');
 
-console.log(postHeader.length);    
+ 
 if (postHeader.length > 0) {
     postHeader = postHeader[0];
     
     let postAccount = document.getElementsByClassName('post-account');
-    if (postHeader.length > 0) {
-        postHeader = postHeader[0];
+    console.log(postAccount.length);   
+    if (postAccount.length > 0) {
+        postAccount = postHeader[0];
         const userName = postHeader.innerText;
         
         const newURL = `http://${userName}.imgur.com`;
