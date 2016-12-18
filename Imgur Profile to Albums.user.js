@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Imgur: Check albums
 // @namespace    http://tampermonkey.net/
-// @version      0.20
+// @version      0.21
 // @description  View user albums from their profile
 // @author       Trasiva
 // @require      https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.6.15/browser-polyfill.min.js
@@ -28,6 +28,7 @@ if (submitButton) {
     let profileButton = document.createElement('div');
     profileButton.setAttribute('class','button-css');
     profileButton.setAttribute('style', 'margin-top:5px');
+    profileButton.setAttribute('target', '_blank');
     profileButton.innerText = `Check ${profileName}'s Profile`;
 
     profileLink.appendChild(profileButton);
