@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Imgur: Check albums
 // @namespace    http://tampermonkey.net/
-// @version      0.10
+// @version      0.11
 // @description  View user albums from their profile
 // @author       Trasiva
 // @require      https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.6.15/browser-polyfill.min.js
