@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Imgur: Check albums from post
 // @namespace    http://tampermonkey.net/
-// @version      0.06
+// @version      0.07
 // @description  View user albums from their post
 // @author       Trasiva
 // @require      https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.6.15/browser-polyfill.min.js
@@ -34,7 +34,7 @@ if (postHeader.length > 0) {
         profileLink.setAttribute('target', '_blank');
         profileLink.innerText = `Profile`;      
 
-        const urlType = window.location.href.replace.replace(/.+.com\/(.+)\/.+/g, '$1');
+        const urlType = window.location.href.replace(/.+.com\/(.+)\/.+/g, '$1');
 
         if (urlType === 'a') {
             const downloadURL = `${window.location.href}/href`;
