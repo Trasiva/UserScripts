@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Imgur: Check albums
 // @namespace    http://tampermonkey.net/
-// @version      0.06
+// @version      0.07
 // @description  View user albums from their profile
 // @author       Trasiva
 // @require      https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.6.15/browser-polyfill.min.js
@@ -21,7 +21,7 @@ const userName = window.location.href.replace(/.+\/user\//g, '');
 const submitButton = document.getElementById('pm-button');
 
 if (submitButton) {
-    const newURL = `www.${userName}.imgur.com`;
+    const newURL = `http://www.${userName}.imgur.com`;
     let profileLink = document.createElement('a');
     profileLink.setAttribute('href', newURL);
 	
