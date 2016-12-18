@@ -22,7 +22,7 @@ const submitButton = document.getElementById('pm-button');
 
 if (submitButton) {
     let profileLink = document.createElement('a');
-    profileLink.setAttribute('href', '`${userName}.imgur.com`');
+    profileLink.setAttribute('href', 'userName + '.imgur.com');
 	
     let profileButton = document.createElement('div');
     profileButton.setAttribute('class','button-css');
@@ -30,7 +30,6 @@ if (submitButton) {
 
     profileLink.appendChild(profileButton);
   let parentDiv = submitButton.parentElement;
-  console.log(parentDiv);
   if (parentDiv) {
   	parentDiv.appendChild(profileLink);
   }
