@@ -6,9 +6,9 @@
 // @author       Trasiva
 // @require      https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.6.15/browser-polyfill.min.js
 // @require      https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.6.15/browser.min.js
-// @match        http://imgur.com/gallery/*
-// @match        http://imgur.com/a/*
-// @match        http://imgur.com/*/favorites/*
+// @match        https?://imgur.com/gallery/*
+// @match        https?://imgur.com/a/*
+// @match        https?://imgur.com/*/favorites/*
 // ==/UserScript==
 
 /* jshint ignore:start */
