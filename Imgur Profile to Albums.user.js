@@ -6,7 +6,7 @@
 // @author       Trasiva
 // @require      https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.6.15/browser-polyfill.min.js
 // @require      https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.6.15/browser.min.js
-// @match        http://imgur.com/user/*
+// @match        https://imgur.com/user/*
 // ==/UserScript==
 
 /* jshint ignore:start */
