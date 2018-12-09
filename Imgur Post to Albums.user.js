@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Imgur: Check albums from post
 // @namespace    http://tampermonkey.net/
-// @version      0.33
+// @version      0.34
 // @description  View user albums from their post
 // @author       Trasiva
 // @match        https://imgur.com/gallery/*
@@ -10,7 +10,7 @@
 // ==/UserScript==
 
 window.addEventListener('load', function() {
-    let divNav = document.querySelector('img[class="post-image-placeholder"]');
+    let divNav = document.querySelector('div[class="image post-image"]');
     
     if (divNav != null) {
         SetProfileLink();
