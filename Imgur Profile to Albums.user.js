@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Imgur: Check albums
 // @namespace    http://tampermonkey.net/
-// @version      0.21
+// @version      0.22
 // @description  View user albums from their profile
 // @author       Trasiva
 // @match        https://imgur.com/user/*
