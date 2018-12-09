@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Imgur: Check albums from post
 // @namespace    http://tampermonkey.net/
-// @version      0.26
+// @version      0.27
 // @description  View user albums from their post
 // @author       Trasiva
 // @match        https://imgur.com/gallery/*
@@ -76,5 +76,5 @@ function SetProfileLink() {
             }
         }
     }
-    console.log(`Script ran - Add link:{addLink} - Add download:{addDownload}`)
+    console.log(`Script ran - Add link:${addLink} - Add download:${addDownload}`)
 }
