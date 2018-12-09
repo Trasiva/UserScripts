@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Imgur: Check albums from post
 // @namespace    http://tampermonkey.net/
-// @version      0.25
+// @version      0.26
 // @description  View user albums from their post
 // @author       Trasiva
 // @match        https://imgur.com/gallery/*
@@ -27,8 +27,8 @@ function SetProfileLink() {
         let postAccount = postHeader.getElementsByClassName('post-account');
         if (postAccount.length > 0) {
             postAccount = postAccount[0];
-            const userName = postAccount.innerText;
-            const newURL = `http://${userName}.imgur.com`;
+            let userName = postAccount.innerText;
+            let newURL = `http://${userName}.imgur.com`;
 
             let addLink = false;
             let addDownload = false;
@@ -45,7 +45,7 @@ function SetProfileLink() {
             }
             profileLink.setAttribute('href', newURL);
 
-            const urlType = window.location.href.replace(/.+.com\/(.+)\/.+/g, '$1');
+            let urlType = window.location.href.replace(/.+.com\/(.+)\/.+/g, '$1');
             let downloadLink = document.querySelector('a[id="lnkDownload"]');
 
             if (urlType === 'a') {
