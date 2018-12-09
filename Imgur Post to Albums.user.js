@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Imgur: Check albums from post
 // @namespace    http://tampermonkey.net/
-// @version      0.22
+// @version      0.23
 // @description  View user albums from their post
 // @author       Trasiva
 // @match        https://imgur.com/gallery/*
@@ -14,7 +14,7 @@ window.addEventListener('load', function() {
     
     if (divNav != null) {
         SetProfileLink();
-        divNav.addEventListener('click', SetProfileLink, false)
+        divNav.AddEventListener('click', SetProfileLink, false)
     }
 }, false);
 
@@ -30,29 +30,47 @@ function SetProfileLink() {
             const userName = postAccount.innerText;
             const newURL = `http://${userName}.imgur.com`;
 
-            let profileLink = document.createElement('a');
+            let addLink = false;
+            let addDownload = false;
+            let profileLink = document.querySelector('a[id="lnkProfile"]');
+
+            if (profileLink == null) {
+                profileLink = document.createElement('a');
+                profileLink.setAttribute('id', 'lnkProfile');
+                profileLink.setAttribute('class', 'post-account');
+                profileLink.setAttribute('style', 'margin-left:10px');
+                profileLink.setAttribute('target', '_blank');
+                profileLink.innerText = `Profile`;     
+                addLink = true;
+            }
             profileLink.setAttribute('href', newURL);
-            profileLink.setAttribute('class', 'post-account');
-            profileLink.setAttribute('style', 'margin-left:10px');
-            profileLink.setAttribute('target', '_blank');
-            profileLink.innerText = `Profile`;      
 
             const urlType = window.location.href.replace(/.+.com\/(.+)\/.+/g, '$1');
-            let downloadLink = document.createElement('a');
+            let downloadLink = document.querySelector('a[id="lnkDownload"]');
 
             if (urlType === 'a') {
-                const downloadURL = `${window.location.href}/href`;
+                downloadURL = `${window.location.href}/href`;
+
+                if (downloadLink == null) {
+                    downloadLink = document.createElement('a');
+                    downloadLink.setAttribute('id', 'lnkDownload');
+                    downloadLink.setAttribute('class', 'post-account');
+                    downloadLink.setAttribute('style', 'margin-left:10px');
+                    downloadLink.setAttribute('target', '_blank');
+                    downloadLink.innerText = `Download`; 
+
+                    addDownload = true;
+                }
+
                 downloadLink.setAttribute('href', downloadURL);
-                downloadLink.setAttribute('class', 'post-account');
-                downloadLink.setAttribute('style', 'margin-left:10px');
-                downloadLink.setAttribute('target', '_blank');
-                downloadLink.innerText = `Download`; 
             }
 
             let divContainer = postHeader.getElementsByClassName('post-title-meta');
             if (divContainer.length > 0) {
-                divContainer[0].appendChild(profileLink);
-                if (urlType === 'a') {
+                if (addLink) {
+                    divContainer[0].appendChild(profileLink);
+                }
+                if (urlType === 'a' && addDownload) {
                     divContainer[0].appendChild(downloadLink); 
                 }
             }
