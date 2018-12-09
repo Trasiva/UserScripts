@@ -12,9 +12,7 @@ window.addEventListener('load', function() {
 
     const userName = window.location.href.replace(/.+\/user\/([a-zA-Z0-1]+)(\/\w+)?/, '$1');
     const tabDiv = document.querySelector('div[class*="Tabs"]');
-
-    console.log(tabDiv);
-
+    
     if (tabDiv) {
         const profileName = userName.length > 25 ? userName.substring(0,25) : userName;
         const newURL = `http://${userName}.imgur.com`;
@@ -26,9 +24,8 @@ window.addEventListener('load', function() {
         profileLink.setAttribute('href', newURL);
         profileLink.setAttribute('style', 'text-decoration: none;color:inherit');
         profileLink.innerText = `Check ${profileName}'s Profile`;
-        console.log('adding222...');
+
         if (tabDiv != null) {
-            console.log('adding...');
             storeDiv.appendChild(profileLink);
             tabDiv.appendChild(storeDiv);
         }
