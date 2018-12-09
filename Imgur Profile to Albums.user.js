@@ -4,8 +4,6 @@
 // @version      0.21
 // @description  View user albums from their profile
 // @author       Trasiva
-// @require      https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.6.15/browser-polyfill.min.js
-// @require      https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.6.15/browser.min.js
 // @match        https://imgur.com/user/*
 // ==/UserScript==
 
