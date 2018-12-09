@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Imgur: Check albums from post
 // @namespace    http://tampermonkey.net/
-// @version      0.18
+// @version      0.19
 // @description  View user albums from their post
 // @author       Trasiva
 // @match        https://imgur.com/gallery/*
@@ -13,7 +13,7 @@ window.addEventListener('load', function() {
     let divNav = document.querySelector('div[class="next-prev"]');
     
     if (divNav != null) {
-        divNav.AddEventListener('click', function() {
+        divNav.addEventListener('click', function() {
             let postHeader = document.getElementsByClassName('post-header');
 
             if (postHeader.length > 0) {
