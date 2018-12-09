@@ -9,37 +9,30 @@
 // @match        https://imgur.com/user/*
 // ==/UserScript==
 
-/* jshint ignore:start */
-var inline_src = (<><![CDATA[
-/* jshint ignore:end */
-/* jshint esnext: true */1
+window.addEventListener('load', function() {
+    'use strict';
 
-const userName = window.location.href.replace(/.+\/user\/([a-zA-Z0-1]+)(\/\w+)?/, '$1');
-const submitButton = document.getElementById('pm-button');
+    const userName = window.location.href.replace(/.+\/user\/([a-zA-Z0-1]+)(\/\w+)?/, '$1');
+    const tabDiv = document.querySelector('div[class*="Tabs"]');
 
-if (submitButton) {
-    const newURL = `http://${userName}.imgur.com`;
+    console.log(tabDiv);
 
-    let profileLink = document.createElement('a');
-    profileLink.setAttribute('href', newURL);
-    profileLink.setAttribute('style', 'text-decoration: none;color:inherit');
-    
-    const profileName = userName.length > 25 ? userName.substring(0,25) : userName;
-    let profileButton = document.createElement('div');
-    profileButton.setAttribute('class','button-css');
-    profileButton.setAttribute('style', 'margin-top:5px');
-    profileButton.setAttribute('target', '_blank');
-    profileButton.innerText = `Check ${profileName}'s Profile`;
+    if (tabDiv) {
+        const profileName = userName.length > 25 ? userName.substring(0,25) : userName;
+        const newURL = `http://${userName}.imgur.com`;
 
-    profileLink.appendChild(profileButton);
-    let parentDiv = submitButton.parentElement;
-    if (parentDiv) {
-        parentDiv.appendChild(profileLink);
+        let storeDiv = document.createElement('div');
+        storeDiv.setAttribute('class', 'TabItem TabItem-strip');
+
+        let profileLink = document.createElement('a');
+        profileLink.setAttribute('href', newURL);
+        profileLink.setAttribute('style', 'text-decoration: none;color:inherit');
+        profileLink.innerText = `Check ${profileName}'s Profile`;
+        console.log('adding222...');
+        if (tabDiv != null) {
+            console.log('adding...');
+            storeDiv.appendChild(profileLink);
+            tabDiv.appendChild(storeDiv);
+        }
     }
-}
-
-/* jshint ignore:start */
-]]></>).toString();
-var c = babel.transform(inline_src);
-eval(c.code);
-/* jshint ignore:end */
+}, false);
