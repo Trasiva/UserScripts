@@ -9,7 +9,7 @@
 
 window.addEventListener('load', function() {
 	for (const row of document.querySelectorAll('dl')) {
-		const game = row.querySelector('span[class="game-name"]')[0].innerText;
+		const game = row.querySelector('span[class="game-name"]').innerText;
 		const key = row.querySelector('input').value;
 		console.log(`${game} - ${key}`);
 	}
