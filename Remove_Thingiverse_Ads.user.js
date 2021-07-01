@@ -8,7 +8,7 @@
 // ==/UserScript==
 
 window.addEventListener('load', function() {
-	let nodes = document.querySelectorAll('div[class*="AdCard"]');
+	let nodes = document.querySelectorAll('div[class*="AdCard__leaderboard"]');
   console.log(`Removing ${nodes.length} nodes.`)
   for (let iter = nodes.length - 1; iter >= 0; iter--) {
       nodes[iter].remove();
