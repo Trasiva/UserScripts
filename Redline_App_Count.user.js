@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Redline Whitelist Appysystems
 // @namespace    http://tampermonkey.net/
-// @version      0.02
+// @version      0.03
 // @description  Update pending and processing app section with count
 // @author       Trasiva
 // @match        https://appsystems.co.uk/centre/manage/redlinerp
@@ -18,7 +18,7 @@ window.addEventListener('load', function() {
 
 function GetAppCountByType(gridName, childElementName) {
     const apps = document.querySelectorAll(`${gridName} > .app-container`)
-    let textLabel = document.querySelector(childElementName).parentElement()
+    let textLabel = document.querySelector(childElementName).parentElement
 
     textLabel.innerText = `${textLabel.innerText} (${apps.length})`
 }
